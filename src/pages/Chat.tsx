@@ -118,7 +118,8 @@ export default function Chat() {
     if (!token) navigate('/');
 
     // WebSocket 연결 설정
-    const sock = new SockJS('https://api.re-use.store/ws-stomp'); // 웹소켓 서버 주소
+    // const sock = new SockJS('https://api.re-use.store/ws-stomp'); // 웹소켓 서버 주소
+    const sock = new SockJS('http://reuse.kro.kr/ws-stomp');
     const stompClient = new Client({
       webSocketFactory: () => sock,
       reconnectDelay: 200,
@@ -264,7 +265,7 @@ export default function Chat() {
                   />
                   {user.chatroom_sender === user.chatroom_consumer_name ? user.seller_shop_name : user.consumer_shop_name}
                 </Profile>
-                <ItemImg src={user.item_main_image} alt="pic" />
+                <ItemImg src={user.item_main_image} />
               </User>
             ))}
         </UserList>
@@ -285,7 +286,7 @@ export default function Chat() {
             <ItemInfo>
               <Round onClick={() => navigate(`/posting/${itemName}`, { state: { id } })}>
                 <div>
-                  <img src={img} alt="pic" />
+                  <img src={img} alt="" />
                   <p>{itemName}</p>
                 </div>
                 <Price>{price.toLocaleString()}원</Price>
