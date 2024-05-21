@@ -5,7 +5,7 @@ import { Client, IFrame } from '@stomp/stompjs';
 export default function WebSocketConnection() {
   useEffect(() => {
     const client = new Client({
-      webSocketFactory: () => new SockJS('http://reuse.kro.kr/ws-stomp'),
+      webSocketFactory: () => new SockJS('https://reuse.kro.kr/ws-stomp'),
     });
 
     client.onConnect = function () {

@@ -119,7 +119,7 @@ export default function Chat() {
 
     // WebSocket 연결 설정
     // const sock = new SockJS('https://api.re-use.store/ws-stomp'); // 웹소켓 서버 주소
-    const sock = new SockJS('http://reuse.kro.kr/ws-stomp');
+    const sock = new SockJS('https://reuse.kro.kr/ws-stomp');
     const stompClient = new Client({
       webSocketFactory: () => sock,
       reconnectDelay: 200,
